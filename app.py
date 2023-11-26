@@ -5,9 +5,11 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+from gensim.models import Word2Vec
 
 # Load your pre-trained Word2Vec model and logistic regression model
-word2vec_model = joblib.load("w2v_model.pkl")
+# word2vec_model = joblib.load("w2v_model.pkl")
+word2vec_model = Word2Vec.load("w2v_model_gensim")
 logistic_model = joblib.load("logistic_model.pkl")
 
 
@@ -64,7 +66,7 @@ def predict_fake_news(text):
 
 st.title("Fake News Detection")
 user_input = st.text_area("Enter Text", "Type your news content here...")
-print("Type of user_input:", type(user_input))  # Debugging line
+# print("Type of user_input:", type(user_input))  # Debugging line
 
 
 if st.button("Predict"):
