@@ -6,11 +6,14 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from gensim.models import Word2Vec
+import pickle
 
 # Load your pre-trained Word2Vec model and logistic regression model
 # word2vec_model = joblib.load("w2v_model.pkl")
 word2vec_model = Word2Vec.load("w2v_model_gensim")
-logistic_model = joblib.load("logistic_model.pkl")
+# logistic_model = joblib.load("logistic_model.pkl")
+with open("logistic_model_pickle.pkl", "rb") as f:
+    logistic_model = pickle.load(f)
 
 
 def preprocess_text(text):
