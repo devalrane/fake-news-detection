@@ -8,6 +8,8 @@ from nltk.stem import PorterStemmer
 from gensim.models import Word2Vec
 import pickle
 
+
+nltk.data.path.append("/app/fake-news-detection/nltk_data")
 # Load your pre-trained Word2Vec model and logistic regression model
 # word2vec_model = joblib.load("w2v_model.pkl")
 word2vec_model = Word2Vec.load("w2v_model_gensim")
